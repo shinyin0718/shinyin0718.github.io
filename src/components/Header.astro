@@ -13,13 +13,13 @@ const isActive = (href: string) => (href === '/' ? current === '/' : current.sta
 ---
 
 <header class="border-b border-slate-200 bg-white/80 backdrop-blur dark:border-slate-800 dark:bg-slate-950/80">
-  <div class="mx-auto flex max-w-5xl items-center justify-between gap-4 px-4 py-4 sm:px-6">
-    <a href="/" class="text-base font-semibold tracking-tight text-slate-900 dark:text-slate-100">
+  <div class="mx-auto flex max-w-5xl items-center justify-between gap-2 px-4 py-4 sm:gap-4 sm:px-6">
+    <a href="/" class="text-sm font-semibold tracking-tight text-slate-900 sm:text-base dark:text-slate-100">
       Shin Yin Ong
     </a>
-    <div class="flex items-center gap-2 sm:gap-4">
+    <div class="flex shrink-0 items-center gap-1 sm:gap-4">
       <nav aria-label="Main">
-        <ul class="flex items-center gap-1 text-sm sm:gap-2">
+        <ul class="flex items-center gap-0.5 text-sm sm:gap-2">
           {
             links.map((link) => (
               <li>
@@ -27,7 +27,7 @@ const isActive = (href: string) => (href === '/' ? current === '/' : current.sta
                   href={link.href}
                   aria-current={isActive(link.href) ? 'page' : undefined}
                   class:list={[
-                    'rounded-md px-2 py-1.5 transition sm:px-3',
+                    'rounded-md px-1.5 py-1.5 transition sm:px-3',
                     isActive(link.href)
                       ? 'bg-accent-50 font-medium text-accent-700 dark:bg-slate-800 dark:text-accent-300'
                       : 'text-slate-600 hover:text-slate-900 dark:text-slate-400 dark:hover:text-slate-100',
