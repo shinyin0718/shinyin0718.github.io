@@ -1,0 +1,41 @@
+---
+interface Props {
+  href: string;
+  title: string;
+  summary: string;
+  thumbnail: string;
+  tools: string[];
+}
+
+const { href, title, summary, thumbnail, tools } = Astro.props;
+---
+
+<article
+  class="group relative flex h-full flex-col overflow-hidden rounded-xl border border-slate-200 bg-white transition hover:border-accent-400 hover:shadow-sm dark:border-slate-800 dark:bg-slate-900"
+>
+  <img
+    src={thumbnail}
+    alt={`Thumbnail for the case study “${title}”`}
+    width="800"
+    height="450"
+    loading="lazy"
+    class="aspect-video w-full object-cover"
+  />
+  <div class="flex flex-1 flex-col gap-3 p-5">
+    <h3 class="text-lg font-semibold text-slate-900 dark:text-slate-100">
+      <a href={href} class="after:absolute after:inset-0 hover:text-accent-700 dark:hover:text-accent-300">
+        {title}
+      </a>
+    </h3>
+    <p class="flex-1 text-sm text-slate-600 dark:text-slate-400">{summary}</p>
+    <ul class="flex flex-wrap gap-2" aria-label="Tools used">
+      {
+        tools.map((tool) => (
+          <li class="rounded-full bg-slate-100 px-2.5 py-1 text-xs text-slate-700 dark:bg-slate-800 dark:text-slate-300">
+            {tool}
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</article>

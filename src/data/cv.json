@@ -1,0 +1,46 @@
+{
+  "name": "Shin Yin Ong",
+  "tagline": "PLACEHOLDER — Data-minded engineer building small, useful tools.",
+  "location": "PLACEHOLDER — Kuala Lumpur, Malaysia",
+  "summary": "PLACEHOLDER — One short paragraph about who you are, what you build, and what kind of work you are looking for. Replace this text in src/data/cv.json.",
+  "experience": [
+    {
+      "company": "PLACEHOLDER — Acme Analytics",
+      "role": "PLACEHOLDER — Senior Data Engineer",
+      "dates": "2023 — Present",
+      "bullets": [
+        "PLACEHOLDER — Led a project that delivered a measurable outcome.",
+        "PLACEHOLDER — Built or maintained a system, naming the scale and the tech.",
+        "PLACEHOLDER — Collaborated with a team or stakeholder group on something concrete."
+      ]
+    },
+    {
+      "company": "PLACEHOLDER — Globex Software",
+      "role": "PLACEHOLDER — Software Engineer",
+      "dates": "2020 — 2023",
+      "bullets": [
+        "PLACEHOLDER — Shipped a feature and the impact it had.",
+        "PLACEHOLDER — Improved a process, with a before/after number.",
+        "PLACEHOLDER — Mentored, reviewed, or documented something useful."
+      ]
+    }
+  ],
+  "education": [
+    {
+      "institution": "PLACEHOLDER — University of Somewhere",
+      "qualification": "PLACEHOLDER — BSc Computer Science",
+      "dates": "2016 — 2020",
+      "details": "PLACEHOLDER — Honours, thesis topic, or relevant coursework."
+    }
+  ],
+  "skills": {
+    "languages": ["Python", "TypeScript", "SQL", "PLACEHOLDER — Go"],
+    "tools": ["Git", "Docker", "GitHub Actions", "PLACEHOLDER — dbt", "PLACEHOLDER — AWS"],
+    "domains": [
+      "Data pipelines",
+      "Automation",
+      "PLACEHOLDER — Financial data",
+      "PLACEHOLDER — Web development"
+    ]
+  }
+}

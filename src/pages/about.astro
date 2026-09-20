@@ -1,0 +1,99 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import cv from '../data/cv.json';
+
+const skillGroups = [
+  { label: 'Languages', items: cv.skills.languages },
+  { label: 'Tools', items: cv.skills.tools },
+  { label: 'Domains', items: cv.skills.domains },
+];
+---
+
+<BaseLayout
+  title="About"
+  description="CV of Shin Yin Ong — work experience, education and skills, with a downloadable résumé."
+>
+  <div class="flex flex-wrap items-start justify-between gap-4">
+    <div>
+      <h1 class="text-3xl font-bold tracking-tight text-slate-900 dark:text-slate-100">About</h1>
+      <p class="mt-2 text-slate-600 dark:text-slate-400">{cv.location}</p>
+    </div>
+    <a
+      href="/resume.pdf"
+      download
+      class="rounded-md bg-accent-700 px-4 py-2 text-sm font-medium text-white transition hover:bg-accent-800"
+    >
+      Download résumé
+    </a>
+  </div>
+
+  <p class="mt-6 max-w-2xl text-slate-600 dark:text-slate-400">{cv.summary}</p>
+
+  <section class="mt-12" aria-labelledby="experience-heading">
+    <h2 id="experience-heading" class="text-xl font-semibold text-slate-900 dark:text-slate-100">
+      Experience
+    </h2>
+    <ol class="mt-5 space-y-8">
+      {
+        cv.experience.map((job) => (
+          <li class="border-l-2 border-slate-200 pl-5 dark:border-slate-800">
+            <div class="flex flex-wrap items-baseline justify-between gap-2">
+              <h3 class="font-medium text-slate-900 dark:text-slate-100">
+                {job.role} · {job.company}
+              </h3>
+              <p class="text-sm text-slate-500 dark:text-slate-400">{job.dates}</p>
+            </div>
+            <ul class="mt-3 space-y-2 text-sm text-slate-600 dark:text-slate-400">
+              {job.bullets.map((bullet) => (
+                <li class="ml-4 list-disc">{bullet}</li>
+              ))}
+            </ul>
+          </li>
+        ))
+      }
+    </ol>
+  </section>
+
+  <section class="mt-12" aria-labelledby="education-heading">
+    <h2 id="education-heading" class="text-xl font-semibold text-slate-900 dark:text-slate-100">
+      Education
+    </h2>
+    <ol class="mt-5 space-y-6">
+      {
+        cv.education.map((item) => (
+          <li class="border-l-2 border-slate-200 pl-5 dark:border-slate-800">
+            <div class="flex flex-wrap items-baseline justify-between gap-2">
+              <h3 class="font-medium text-slate-900 dark:text-slate-100">
+                {item.qualification} · {item.institution}
+              </h3>
+              <p class="text-sm text-slate-500 dark:text-slate-400">{item.dates}</p>
+            </div>
+            <p class="mt-2 text-sm text-slate-600 dark:text-slate-400">{item.details}</p>
+          </li>
+        ))
+      }
+    </ol>
+  </section>
+
+  <section class="mt-12" aria-labelledby="skills-heading">
+    <h2 id="skills-heading" class="text-xl font-semibold text-slate-900 dark:text-slate-100">Skills</h2>
+    <div class="mt-5 grid gap-6 sm:grid-cols-3">
+      {
+        skillGroups.map((group) => (
+          <div>
+            <h3 class="text-sm font-medium uppercase tracking-wide text-slate-500 dark:text-slate-400">
+              {group.label}
+            </h3>
+            <ul class="mt-3 flex flex-wrap gap-2">
+              {group.items.map((item) => (
+                <li class="rounded-full bg-slate-100 px-2.5 py-1 text-xs text-slate-700 dark:bg-slate-800 dark:text-slate-300">
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+</BaseLayout>

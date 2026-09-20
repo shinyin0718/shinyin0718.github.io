@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <rect width="1200" height="630" fill="#0f172a" />
+  <rect x="0" y="0" width="1200" height="10" fill="#0d9488" />
+  <text x="80" y="300" font-family="sans-serif" font-size="72" font-weight="700" fill="#f8fafc">Shin Yin Ong</text>
+  <text x="80" y="370" font-family="sans-serif" font-size="34" fill="#5eead4">Engineering work, case studies and CV</text>
+</svg>

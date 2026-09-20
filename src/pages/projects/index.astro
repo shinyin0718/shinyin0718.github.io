@@ -1,0 +1,31 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import CaseStudyCard from '../../components/CaseStudyCard.astro';
+
+const caseStudies = (await getCollection('case-studies')).sort((a, b) => a.data.order - b.data.order);
+---
+
+<BaseLayout
+  title="Projects"
+  description="Case studies of projects built by Shin Yin Ong, with the problem, approach and outcome for each."
+>
+  <h1 class="text-3xl font-bold tracking-tight text-slate-900 dark:text-slate-100">Projects</h1>
+  <p class="mt-3 max-w-2xl text-slate-600 dark:text-slate-400">
+    A selection of case studies. Each one covers the problem, the approach I took, and what came out of it.
+  </p>
+
+  <div class="mt-8 grid gap-5 sm:grid-cols-2">
+    {
+      caseStudies.map((entry) => (
+        <CaseStudyCard
+          href={`/projects/${entry.id}`}
+          title={entry.data.title}
+          summary={entry.data.summary}
+          thumbnail={entry.data.thumbnail}
+          tools={entry.data.tools}
+        />
+      ))
+    }
+  </div>
+</BaseLayout>

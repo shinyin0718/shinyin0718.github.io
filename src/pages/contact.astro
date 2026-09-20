@@ -1,0 +1,67 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+// The address is assembled in the browser so it is not sitting in the HTML for scrapers.
+const emailUser = 'ongshinyin';
+const emailDomain = 'gmail.com';
+---
+
+<BaseLayout
+  title="Contact"
+  description="Get in touch with Shin Yin Ong via email, GitHub or LinkedIn."
+>
+  <h1 class="text-3xl font-bold tracking-tight text-slate-900 dark:text-slate-100">Contact</h1>
+  <p class="mt-3 max-w-2xl text-slate-600 dark:text-slate-400">
+    The quickest way to reach me is email. I am also on GitHub and LinkedIn.
+  </p>
+
+  <ul class="mt-8 space-y-4">
+    <li>
+      <a
+        id="email-link"
+        href="#"
+        data-user={emailUser}
+        data-domain={emailDomain}
+        class="flex items-center gap-3 rounded-xl border border-slate-200 p-4 transition hover:border-accent-400 dark:border-slate-800"
+      >
+        <span class="font-medium text-slate-900 dark:text-slate-100">Email</span>
+        <span class="text-sm text-slate-600 dark:text-slate-400">
+          <span>{emailUser}</span> <span aria-hidden="true">[at]</span>
+          <span class="sr-only">@</span>
+          <span>{emailDomain}</span>
+        </span>
+      </a>
+    </li>
+    <li>
+      <a
+        href="https://github.com/shinyin0718"
+        rel="me noopener noreferrer"
+        target="_blank"
+        class="flex items-center gap-3 rounded-xl border border-slate-200 p-4 transition hover:border-accent-400 dark:border-slate-800"
+      >
+        <span class="font-medium text-slate-900 dark:text-slate-100">GitHub</span>
+        <span class="text-sm text-slate-600 dark:text-slate-400">github.com/shinyin0718</span>
+      </a>
+    </li>
+    <li>
+      <a
+        href="https://www.linkedin.com/in/shinyin0718"
+        rel="me noopener noreferrer"
+        target="_blank"
+        class="flex items-center gap-3 rounded-xl border border-slate-200 p-4 transition hover:border-accent-400 dark:border-slate-800"
+      >
+        <span class="font-medium text-slate-900 dark:text-slate-100">LinkedIn</span>
+        <span class="text-sm text-slate-600 dark:text-slate-400">PLACEHOLDER — update to your profile URL</span>
+      </a>
+    </li>
+  </ul>
+</BaseLayout>
+
+<script is:inline>
+  (() => {
+    const link = document.getElementById('email-link');
+    if (!(link instanceof HTMLAnchorElement)) return;
+    const { user, domain } = link.dataset;
+    link.href = `mailto:${user}@${domain}`;
+  })();
+</script>
